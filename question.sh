@@ -41,3 +41,5 @@
 #
 #  >>> Escriba su codigo a partir de este punto <<<
 #
+cat $1 | sed 's|\(.*\)|\U\1|g' | sed 's|,|\.|g' | sed 's|;|,|g' | sed 's|\([0-9][0-9]\)/\([0-2][0-9]\)/\([0-9][0-9]\)|20\3-\2-\1|g' | sed 's|\([0-9]\+\)/\([0-9]\+\)/\([0-9]\+\)|0\3-0\2-0\1|g' | sed 's|n|N|g' | 
+sed 's|,N|,\\N|g' | sed 's|,,|,\\N,|g' | sed ':a;N;$!ba;s|,\n|,\\N\n|g'
